@@ -1,10 +1,14 @@
 import random
-from .message import MESSAGES
+from .message import MESSAGE_CONFIG
 from .utils import random_delay
 from .config import IFRAME_URL, MIN_DELAY, MAX_DELAY
 
 def send_message(page):
-    message = random.choice(MESSAGES)
+    if MESSAGE_CONFIG["mode"] == "b":
+        message = f"{random.choice(MESSAGE_CONFIG['links'])} \n\n{random.choice(MESSAGE_CONFIG['messages'])}"
+    else:
+        link, msg = random.choice(MESSAGE_CONFIG["data"])
+        message = f"{link} \n\n{msg}"
 
     # Wait for iframe to appear
     page.wait_for_selector("iframe")
