@@ -21,12 +21,18 @@ elif CHAT_MODE == "v":
     TARGET_LINK = os.getenv("TARGET_LINK_VIDEO")
     M1 = os.getenv("M2")
     M2 = os.getenv("M3")
+elif CHAT_MODE == "r":
+    TARGET_LINK = os.getenv("TARGET_LINK_RANDOM")
+    M1 = os.getenv("M1")
+    M2 = os.getenv("M4")
 else:
     TARGET_LINK = [os.getenv("TARGET_LINK"),
-                   os.getenv("TARGET_LINK_VIDEO")]
+                   os.getenv("TARGET_LINK_VIDEO"),
+                   os.getenv("TARGET_LINK_RANDOM")]
     M = [os.getenv("M1"),
          os.getenv("M2"),
-         os.getenv("M3")]
+         os.getenv("M3"),
+         os.getenv("M4")]
 
 CHAT_TIMER = int(os.getenv("CHAT_TIMER"))
 
