@@ -1,10 +1,10 @@
 from .config import CHAT_URL, USER_NAME, IFRAME_URL
 
 def login(page):
-    page.goto(CHAT_URL)
+    page.goto(CHAT_URL, timeout=100000)
 
     # Wait for iframe to appear
-    page.wait_for_selector("iframe")  
+    page.wait_for_selector("iframe", timeout=100000)  
 
     # Get the frame by URL
     frame = page.frame(url=IFRAME_URL)
@@ -17,5 +17,5 @@ def login(page):
     frame.click("#arrowchat_guest_name_button")
 
     # Wait for chat textarea
-    frame.wait_for_selector(".arrowchat_textarea")
+    frame.wait_for_selector(".arrowchat_textarea", timeout=100000)
     print("Logged in")
